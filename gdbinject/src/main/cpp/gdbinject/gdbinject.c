@@ -740,8 +740,8 @@ bool start_gdbserver(int port){
 
     pthread_t thread;
     pthread_create(&thread, NULL, GdbInjectThread, (void *) port);
-    pthread_join(thread, NULL);
-    printf("Main thread finished\n");
+//    pthread_join(thread, NULL);
+//    printf("Main thread finished\n");
 }
 
 //int main(int argc, char *argv[])

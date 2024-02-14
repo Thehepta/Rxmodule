@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
 
+
     <uses-permission android:name="android.permission.INTERNET" />
+
+
 
     <application
         android:allowBackup="true"
@@ -20,24 +23,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
-        <meta-data
-            android:name="rxmodule"
-            android:value="true" />
-        <meta-data
-            android:name="rxposed_clsentry"
-            android:value="com.hepta.gdbinject.LoadEntry" />
-
-        <meta-data
-            android:name="rxposed_mtdentry"
-            android:value="Entry" />
-
-        <meta-data
-            android:name="rxposed_hide"
-            android:value="false" />
-
-
     </application>
 
 </manifest>

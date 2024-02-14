@@ -3,25 +3,17 @@ plugins {
 }
 
 android {
-    namespace 'com.hepta.fridademo'
+    namespace 'com.hepta.dumpdex'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.hepta.fridademo"
+        applicationId "com.hepta.dumpdex"
         minSdk 27
         targetSdk 34
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
-        sourceSets {
-            main {
-                jniLibs.srcDirs = ['libs']
-            }
-        }
-
-
     }
 
     buildTypes {
@@ -34,7 +26,6 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
 }
 
 dependencies {

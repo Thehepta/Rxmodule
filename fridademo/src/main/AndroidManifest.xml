@@ -21,6 +21,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="rxmodule"
+            android:value="true" />
+        <meta-data
+            android:name="rxposed_clsentry"
+            android:value="com.hepta.fridademo.FridaLoadEntry" />
+
+        <meta-data
+            android:name="rxposed_mtdentry"
+            android:value="Entry" />
+
+        <meta-data
+            android:name="rxposed_hide"
+            android:value="false" />
+
+
+
     </application>
 
 </manifest>
