@@ -1,4 +1,4 @@
-package com.custom.davlikjvmruntimeenv;
+package com.hepta.davlikjvmruntimeenv;
 
 import android.content.Context;
 import android.util.Log;

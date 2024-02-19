@@ -88,7 +88,7 @@ JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved) {
         return -1;
     }
 
-    jclass classTest = env->FindClass("com/custom/davlikjvmruntimeenv/JvmRuntime");
+    jclass classTest = env->FindClass("com/hepta/davlikjvmruntimeenv/JvmRuntime");
     JNINativeMethod methods[]= {
             {"getClassLoaderList", "()[Ljava/lang/ClassLoader;",(void*)getClassLoaderList},
             {"GlobalFindClass", "(Ljava/lang/String;)Ljava/lang/Class;",(void*)GlobalFindClass},

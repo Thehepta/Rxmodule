@@ -1,10 +1,12 @@
 package com.hepta.dumpdex;
 
-import static com.hepta.dumpdex.LoadEntry.dumpdex;
+import com.hepta.dumpdex.LoadEntry;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -12,6 +14,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        dumpdex(this,null);
+        Button button = findViewById(R.id.text2);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LoadEntry.dumpdex(MainActivity.this,"");
+                LoadEntry.dumpMethod();
+
+            }
+        });
     }
 }
