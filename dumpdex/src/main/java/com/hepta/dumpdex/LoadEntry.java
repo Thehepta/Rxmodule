@@ -26,8 +26,8 @@ public class LoadEntry {
 
     public static native Object[] dumpDexByCookie(long[] cookie,String dumpDir);
 
-    public static void entry(Context context){
-
+    public static void entry(Context context,String source){
+        PreLoadNativeSO(context,source);
         Log.e("Rzx","entry dumpdex");
         try {
             Class<?> MTGuard = context.getClassLoader().loadClass("android.app.Activity");
@@ -51,6 +51,25 @@ public class LoadEntry {
 
 //        dumpMethod();
     }
+
+
+    private static void PreLoadNativeSO(Context context, String source) {
+        try {
+            String abi= "arm64-v8a";
+            if(!android.os.Process.is64Bit()){
+                abi = "armeabi-v7a";
+            }
+            String libdump = source+"!/lib/"+abi+"/libdump.so";
+            System.load(libdump);
+            String libpine = source+"!/lib/"+abi+"/libpine.so";
+            System.load(libpine);
+        }catch (Exception e){
+            Log.e("LoadEntry","LoadSo error");
+        }
+
+    }
+
+
 
     public static void dumpdex(Context context , String dir) {
 

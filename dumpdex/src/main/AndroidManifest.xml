@@ -39,7 +39,7 @@
 
         <meta-data
             android:name="rxposed_hide"
-            android:value="true" />
+            android:value="false" />
 
 
     </application>
