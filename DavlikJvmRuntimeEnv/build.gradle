@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.hepta.davlikjvmruntimeenv'
+    namespace 'com.hepta.davlik'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.hepta.davlikjvmruntimeenv"
+        applicationId "com.hepta.davlik"
         minSdk 27
         targetSdk 34
         versionCode 1

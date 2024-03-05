@@ -36,7 +36,8 @@ add_library(${CMAKE_PROJECT_NAME} SHARED
         RuntimePart.cpp
         elf_symbol_resolver.cpp
         art_method.cpp
-        native-lib.cpp)
+        jvmti.cpp
+        dumpdex.cpp)
 
 # Specifies libraries CMake should link to your target library. You
 # can link libraries from various origins, such as libraries defined in this

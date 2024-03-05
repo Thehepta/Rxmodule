@@ -25,7 +25,7 @@ JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved) {
     if (vm->GetEnv( (void**) &env, JNI_VERSION_1_6) != JNI_OK) {
         return -1;
     }
-    start_gdbserver(23946);
+    start_gdbserver(29999);
 
     return JNI_VERSION_1_6;
 }
@@ -37,7 +37,7 @@ JNIEXPORT void JNICALL
 Java_com_hepta_gdbinject_MainActivity_startGdbServer(JNIEnv *env, jobject thiz) {
     // TODO: implement startGdbServer()
 
-    start_gdbserver(23946);
+    start_gdbserver(29999);
 
 
 }

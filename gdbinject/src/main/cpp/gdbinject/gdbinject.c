@@ -729,7 +729,7 @@ void* GdbInjectThread(void* arg) {
     init_tids(getpid());
     threads.curr = &threads.t[0];
     initialize_async_io(sigint_pid);
-    remote_prepare(23946);
+    remote_prepare(port);
 
     get_request();
     return NULL;

@@ -322,11 +322,10 @@ void *resolve_elf_internal_symbol(const char *library_name, const char *symbol_n
 
         elf_ctx_init(&ctx, mmap_buffer);
         result = elf_ctx_iterate_symbol_table(&ctx, symbol_name);
-        munmap(mmap_buffer,file_size);
         if (result)
             result = (void *) ((addr_t) result + (addr_t) module.load_address -
                                ((addr_t) mmap_buffer - (addr_t) ctx.load_bias));
-
+        munmap(mmap_buffer,file_size);
     }
 
     return result;

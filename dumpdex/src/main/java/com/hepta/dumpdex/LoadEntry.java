@@ -11,8 +11,8 @@ import java.lang.reflect.Method;
 
 import dalvik.system.BaseDexClassLoader;
 import dalvik.system.DexFile;
-import top.custom.hepta.Pine;
-import top.custom.hepta.callback.MethodHook;
+//import top.custom.hepta.Pine;
+//import top.custom.hepta.callback.MethodHook;
 
 public class LoadEntry {
 
@@ -23,31 +23,36 @@ public class LoadEntry {
     public static native void dumpMethod(Member method);
     public static native ClassLoader[] getClassLoaderList();
     public static native ClassLoader[] getBaseDexClassLoaderList();
+    public static native void AutodumpDex();
 
-    public static native Object[] dumpDexByCookie(long[] cookie,String dumpDir);
+    public static Context context;
+    public static native void dumpDexByCookie(long[] cookie,String dumpDir);
 
     public static void entry(Context context,String source){
+        context = context;
         PreLoadNativeSO(context,source);
         Log.e("Rzx","entry dumpdex");
-        try {
-            Class<?> MTGuard = context.getClassLoader().loadClass("android.app.Activity");
-            Pine.hook(MTGuard.getDeclaredMethod("onCreate", Bundle.class), new MethodHook() {
-                @Override
-                public void beforeCall(Pine.CallFrame callFrame) throws Throwable {
-                    Log.e(TAG,"onCreate beforeCall:"+callFrame.method.getName());
-
-//                    dumpMethod(callFrame.method);
-                }
-                @Override
-                public void afterCall(Pine.CallFrame callFrame) throws Throwable {
-
-                    Log.e(TAG,"onCreate afterCall");
-
-                }
-            });
-        } catch (NoSuchMethodException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+        dumpdex();
+//        AutodumpDex();
+//        try {
+//            Class<?> MTGuard = context.getClassLoader().loadClass("android.app.Activity");
+//            Pine.hook(MTGuard.getDeclaredMethod("onCreate", Bundle.class), new MethodHook() {
+//                @Override
+//                public void beforeCall(Pine.CallFrame callFrame) throws Throwable {
+//                    Log.e(TAG,"onCreate beforeCall:"+callFrame.method.getName());
+//
+////                    dumpMethod(callFrame.method);
+//                }
+//                @Override
+//                public void afterCall(Pine.CallFrame callFrame) throws Throwable {
+//
+//                    Log.e(TAG,"onCreate afterCall");
+//
+//                }
+//            });
+//        } catch (NoSuchMethodException | ClassNotFoundException e) {
+//            throw new RuntimeException(e);
+//        }
 
 //        dumpMethod();
     }
@@ -61,17 +66,14 @@ public class LoadEntry {
             }
             String libdump = source+"!/lib/"+abi+"/libdump.so";
             System.load(libdump);
-            String libpine = source+"!/lib/"+abi+"/libpine.so";
-            System.load(libpine);
         }catch (Exception e){
             Log.e("LoadEntry","LoadSo error");
         }
-
     }
 
 
 
-    public static void dumpdex(Context context , String dir) {
+    public static void dumpdex() {
 
 
         File pathFile=new File(context.getFilesDir().getAbsolutePath()+"/dump");

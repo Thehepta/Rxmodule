@@ -116,8 +116,8 @@ public final class Pine {
             throw new RuntimeException("Only supports ART runtime");
 
         try {
-            LibLoader libLoader = PineConfig.libLoader;
-            if (libLoader != null) libLoader.loadLib();
+//            LibLoader libLoader = PineConfig.libLoader;
+//            if (libLoader != null) libLoader.loadLib();
 
             init0(sdkLevel, PineConfig.debug, PineConfig.debuggable, PineConfig.antiChecks,
                     PineConfig.disableHiddenApiPolicy, PineConfig.disableHiddenApiPolicyForPlatformDomain);

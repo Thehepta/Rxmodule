@@ -88,11 +88,11 @@ JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved) {
         return -1;
     }
 
-    jclass classTest = env->FindClass("com/hepta/davlikjvmruntimeenv/JvmRuntime");
+    jclass classTest = env->FindClass("com/hepta/davlik/JvmRuntime");
     JNINativeMethod methods[]= {
             {"getClassLoaderList", "()[Ljava/lang/ClassLoader;",(void*)getClassLoaderList},
             {"GlobalFindClass", "(Ljava/lang/String;)Ljava/lang/Class;",(void*)GlobalFindClass},
-            {"NativeLoadJvmTI", "()V", (void*)NativeLoadJvmTI},
+            {"nativeLoadJvmTI", "()V", (void*)NativeLoadJvmTI},
             {"dumpDexByCookie", "([J)[Ljava/lang/Object;", (void*)dumpDexByCookie},
     };
     env->RegisterNatives(classTest, methods, sizeof(methods)/sizeof(JNINativeMethod));

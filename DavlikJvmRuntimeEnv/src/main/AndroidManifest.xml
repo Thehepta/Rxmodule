@@ -7,6 +7,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:name=".App"
         android:theme="@style/Theme.Rxmodule">
         <activity
             android:name=".MainActivity"
@@ -17,6 +18,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <meta-data
+            android:name="rxmodule"
+            android:value="true" />
+        <meta-data
+            android:name="rxposed_clsentry"
+            android:value="com.hepta.davlik.JvmRuntime" />
+
+        <meta-data
+            android:name="rxposed_mtdentry"
+            android:value="Entry" />
+
+        <meta-data
+            android:name="rxposed_hide"
+            android:value="true" />
+
     </application>
 
 </manifest>
