@@ -28,7 +28,7 @@ public class LoadEntry {
     public static Context context;
     public static native void dumpDexByCookie(long[] cookie,String dumpDir);
 
-    public static void entry(Context context,String source){
+    public static void entry(Context context,String source,String argument){
         context = context;
         PreLoadNativeSO(context,source);
         Log.e("Rzx","entry dumpdex");

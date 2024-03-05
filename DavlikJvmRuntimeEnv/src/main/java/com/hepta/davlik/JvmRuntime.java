@@ -36,7 +36,7 @@ public class JvmRuntime {
         return null;
     }
 
-    public static void Entry(Context context , String source){
+    public static void Entry(Context context , String source,String argument){
         Log.e("JvmRuntime","23 Entry");
         LoadSo(context,source);
         nativeLoadJvmTI();

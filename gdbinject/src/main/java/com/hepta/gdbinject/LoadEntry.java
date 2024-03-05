@@ -6,7 +6,7 @@ import android.util.Log;
 public class LoadEntry {
 
 
-    public static void Entry(Context context , String source){
+    public static void Entry(Context context , String source,String argument){
         PreLoadNativeSO(context,source);
     }
 

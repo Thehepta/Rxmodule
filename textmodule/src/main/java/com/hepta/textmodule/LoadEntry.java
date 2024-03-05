@@ -11,7 +11,7 @@ import top.custom.hepta.callback.MethodHook;
 public class LoadEntry {
 
 
-    public static void Entry(Context context , String source){
+    public static void Entry(Context context , String source,String argument){
         PreLoadNativeSO(context,source);
         hookAppText(context);
     }

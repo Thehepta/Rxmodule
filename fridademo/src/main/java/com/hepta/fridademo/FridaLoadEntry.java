@@ -4,7 +4,7 @@ import android.content.Context;
 
 public class FridaLoadEntry {
 
-    public static void Entry(Context context , String source){
+    public static void Entry(Context context , String source,String argument){
         LoadSo(context,source);
         
     }
