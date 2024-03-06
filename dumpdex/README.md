@@ -1,0 +1,3 @@
+这是一个dumpdex的模块,可以直接安装到手机上dump自己，目前dumpdex的方式都有个code_item会写的问题，就是说，要二次修复，我把这部个改了一下，
+内存中code_item的地址距离dump的dex的起始地址的偏移，跟dump出来以后，正常dex中对应方法的code_item的偏移是一致的，所以是否可以直接将需要dump的code_item
+写入到对应的dex中，偏移为code_item的地址距离dump的dex的起始地址的偏移，这样可以不用修复，问题是如果解密有问题，有防御，可能会出问题

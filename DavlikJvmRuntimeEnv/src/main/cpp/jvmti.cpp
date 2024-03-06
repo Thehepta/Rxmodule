@@ -71,12 +71,8 @@ void LoadJvmTI(JNIEnv *env) {
     hook = static_cast<jclass>(env->NewGlobalRef(env->FindClass("android/app/Activity")));
 //    hoomethod = env->GetStaticMethodID(hook,"e","(Ljava/lang/String;Ljava/lang/String;)I");
     AndroidRunAPI* androidRunApi = AndroidRunAPI::getInstance();
-
     androidRunApi->ensurePluginLoaded = (bool (*)(void *, const char*,std::string*))resolve_elf_internal_symbol("libart.so","_ZN3art7Runtime18EnsurePluginLoadedEPKcPNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEE");
-
-
     auto (*SetJdwpAllowed)(bool) = reinterpret_cast<void (*)(bool)>(resolve_elf_internal_symbol("libart.so","_ZN3art3Dbg14SetJdwpAllowedEb"));
-
     auto (*setJavaDebuggable)(void *, bool) = reinterpret_cast<void (*)(void *, bool)>(resolve_elf_internal_symbol( "libart.so","_ZN3art7Runtime17SetJavaDebuggableEb"));
 
 
@@ -86,11 +82,7 @@ void LoadJvmTI(JNIEnv *env) {
         LOGV("SetJdwpAllowed  ==  null ");
 
     }
-
-
-
     JavaVM *javaVM;
-
     env->GetJavaVM(&javaVM);
     JavaVMExt *javaVMExt = (JavaVMExt *) javaVM;
     void *runtime = javaVMExt->runtime;
